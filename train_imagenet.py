@@ -97,7 +97,7 @@ def main():
         batch_size=args.b, shuffle=False,
         num_workers=args.j, pin_memory=True)
 
-    net = spiking_resnet_imagenet.__dict__[args.model](single_step_neuron=neuron.OnlineLIFNode, tau=args.tau, surrogate_function=surrogate.Sigmoid(), track_rate=True, c_in=3, num_classes=num_classes, drop_rate=args.drop_rate, stochdepth_rate=args.stochdepth_rate, neuron_dropout=0.0, grad_with_rate=True, v_reset=None)
+    net = spiking_resnet_imagenet.__dict__[args.model](single_step_neuron=neuron.OnlineLIFNode, tau=args.tau, surrogate_function=surrogate.Sigmoid(alpha=4.), track_rate=True, c_in=3, num_classes=num_classes, drop_rate=args.drop_rate, stochdepth_rate=args.stochdepth_rate, neuron_dropout=0.0, grad_with_rate=True, v_reset=None)
     #print(net)
     print('Total Parameters: %.2fM' % (sum(p.numel() for p in net.parameters()) / 1000000.0))
     net.cuda()
