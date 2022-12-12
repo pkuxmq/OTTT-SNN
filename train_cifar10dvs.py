@@ -70,7 +70,7 @@ def main():
     #print(args)
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu_id
 
-    net = spiking_vgg.__dict__[args.model](single_step_neuron=neuron.OnlineLIFNode, surrogate_function=surrogate.Sigmoid(), track_rate=True, c_in=2, num_classes=10, grad_with_rate=True, tau=args.tau, neuron_dropout=args.drop_rate, fc_hw=1, v_reset=None)
+    net = spiking_vgg.__dict__[args.model](single_step_neuron=neuron.OnlineLIFNode, surrogate_function=surrogate.Sigmoid(alpha=4.), track_rate=True, c_in=2, num_classes=10, grad_with_rate=True, tau=args.tau, neuron_dropout=args.drop_rate, fc_hw=1, v_reset=None)
     #print(net)
     print('Total Parameters: %.2fM' % (sum(p.numel() for p in net.parameters()) / 1000000.0))
     net.cuda()
