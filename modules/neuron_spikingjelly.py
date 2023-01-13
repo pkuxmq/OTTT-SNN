@@ -6,12 +6,13 @@ from . import surrogate, base
 from . import configure
 import math
 import numpy as np
-try:
-    import cupy
-    from . import neuron_kernel, cu_kernel_opt
-except BaseException as e:
-    print('neuron:', e)
-    neuron_kernel = None
+#try:
+#    import cupy
+#    from . import neuron_kernel, cu_kernel_opt
+#except BaseException as e:
+#    print('neuron:', e)
+#    neuron_kernel = None
+neuron_kernel = None
 
 
 class BaseNode(base.MemoryModule):
