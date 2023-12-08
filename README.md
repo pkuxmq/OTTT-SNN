@@ -1,5 +1,7 @@
 # OTTT-SNN
-This is the PyTorch implementation of paper: Online Training Through Time for Spiking Neural Networks **(NeurIPS 2022)**. \[[arxiv](https://arxiv.org/abs/2210.04195)\].
+This is the PyTorch implementation of paper: Online Training Through Time for Spiking Neural Networks **(NeurIPS 2022)**. \[[arxiv](https://arxiv.org/abs/2210.04195)\]\[[openreview](https://openreview.net/forum?id=Siv3nHYHheI)\].
+
+Update 2023/12: Some modules of OTTT have been integrated into the latest code of [spikingjelly](https://github.com/fangwei123456/spikingjelly), and the new codes for the neuron model can support multi-gpu training. We provide the reference codes included in the spikingjelly repository in spikingjelly\_codes/reference\_codes/, where neuron.py, layer.py, and functional.py (located in spikingjelly/activation\_based/ in their repository) include some modules for OTTT, and spiking\_vggws\_ottt.py (located in spikingjelly/activation\_based/models/ in their repository) gives an example of how to define the model with OTTT modules. We also provide an example of how to train the model in spikingjelly\_codes/train\_ottt\_cifar.py for reference.
 
 ## Dependencies and Installation
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
